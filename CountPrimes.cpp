@@ -34,6 +34,10 @@ namespace math
 //                cout<<prime.at(i)<<endl;
             return prime.size();
         }
+	bool isPrime(int b)
+        {
+            return binary_search(prime.begin(), prime.end(), b);
+        }
     }
 }
 using namespace math;
