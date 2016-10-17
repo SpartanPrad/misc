@@ -30,7 +30,7 @@ void generateLps(char *pat, int size, int *lps)
 	}
 }
 
-int kmpSearch(char *text, char *pat)
+void kmpSearch(char *text, char *pat)
 {
 	int n=strlen(text);
 	int m=strlen(pat);
@@ -47,8 +47,8 @@ int kmpSearch(char *text, char *pat)
 		}
 		if(j==m)
 		{
+			cout<<i-j<<endl;
 			j=lps[j-1];
-			return i-j;
 		}
 		else if(i<n && pat[j] != text[i])
 		{
@@ -58,18 +58,17 @@ int kmpSearch(char *text, char *pat)
 			}
 			else
 			{
-				i++;
+				i += 1;
 			}
 		}
 	}
 	free(lps);
-	return 0;
 }
 
 int main() {
 	// your code goes here
 	char *txt = "ABABDABACDABABCABAB";
    	char *pat = "ABABCABAB";
-   	cout<<kmpSearch(txt, pat);
+   	kmpSearch(txt, pat);
 	return 0;
 }
